@@ -11,10 +11,10 @@
         items: []
       }
     },
-    mounted: function (to, from, next) {
-      this.$http.get('../../static/sass.json').then(function (data){
-        this.items = data.body;
-        console.log(this.items);
+    mounted: function () {
+      this.$http.get('http://localhost:8088/api/article/description?type=Node').then((res) => {
+        if(!res || !res.data || !res.data.ok) return;
+        this.items = res.data.data;
       })
     }
   }

@@ -18,22 +18,19 @@
       <div class="word">爱好： NBA、电影、动漫</div>
       <div class="copyright">© 2017 Sun's Blog 版权所有</div>
     </div>
-    <transition name="routeTransition">
-      <!--campass&sass页面不让它缓存页面的处理-->
-      <div class="right" v-if="$route.meta.keepAlive">
-        <keep-alive><router-view class="view"></router-view></keep-alive>
-      </div>
-      <div class="right" v-else>
+    <div class="right">
+      <transition name="transition">
         <router-view class="view"></router-view>
-      </div>
-    </transition>
+      </transition>
+    </div>
+
 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'blog'
+
 }
 </script>
 
@@ -41,7 +38,6 @@ export default {
   .activeClass{
     color: #acc4ac;
   }
-
   #blog{
     width: 100%;
     min-height:21px;
@@ -54,20 +50,18 @@ export default {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     .view{
-      transition: all 10s cubic-bezier(.55,0,.1,1);
+      transition: all .5s cubic-bezier(.55,0,.1,1);
     }
-    .routeTransition-enter-active,.routeTransition-leave-active{
-      transition: all 1s linear;
-      overflow: hidden;
+    .transition-enter-active{
+      opacity: 0;
+      -webkit-transform: translate(30px, 0);
+      transform: translate(30px, 0);
     }
-    .routeTransition-enter{
-      transform:rotate(90deg);
+    .transition-leave-active{
+      opacity: 0;
+      -webkit-transform: translate(-30px, 0);
+      transform: translate(-30px, 0);
     }
-    .routeTransition-active{
-      transform: rotate(-90deg);
-    }
-
-
   }
   .left{
     width:25%;

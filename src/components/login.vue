@@ -8,7 +8,7 @@
           <input type="text" placeholder="Email" v-model=" account">
         </div>
         <div class="ipt">
-          <input type="text" placeholder="Password" v-model="password">
+          <input type="password" placeholder="Password" v-model="password">
         </div>
         <div class="tip">
           <div class="top">There is no way to do it without </div>
@@ -36,7 +36,7 @@
     				account  : this.account,
             password : this.password
           };
-          this.$http.get('https://wenjianblog.herokuapp.com/api/login/getAccount?op=get',{params:params})
+          this.$http.get('http://localhost:8088/api/login/getAccount?op=get',{params:params})
             .then( res=>{
               if(res.data.ok){
                 $toast('登录成功');
@@ -109,6 +109,7 @@
       border-radius:7px;
       line-height:35px;
       margin-top:30px;
+
       input{
         width: 90%;
         outline:none;
@@ -135,6 +136,9 @@
         font-size: 16px;
         font-style: italic;
       }
+    }
+    .ipt:focus-within{
+      border:1px solid deepskyblue;
     }
     .tip{
       width: 75%;

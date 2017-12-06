@@ -50,7 +50,7 @@
           }
           that.$store.state.results = [];
           let params = { type : 'All'};
-          this.$http.get('https://wenjianblog.herokuapp.com/api/article/description?op=get',{params}).then(function(res){
+          this.$http.get('http://localhost:8088/api/article/description?op=get',{params}).then(function(res){
                 if(!res || !res.data || !res.data.ok) return;
                 let data = res.data.data;
                 data.forEach(function(d){

@@ -19,7 +19,7 @@
         beforeRouteEnter:function (to,from,next){
         	  let params = { id : to.query.id };
             next((vm)=>{
-              vm.$http.get('https://wenjianblog.herokuapp.com/api/article/detail?op=get',{ params })
+              vm.$http.get('http://localhost:8088/api/article/detail?op=get',{ params })
                 .then(res=>{
                   if(!res || !res.data ) return;
                   vm.html = res.data
@@ -82,6 +82,11 @@
    code{
      background-color: #f6f8fa;
      padding:2px 10px;
+   }
+   img{
+     width: 560px;
+     height: 180px;
+     margin-left: 40px;
    }
 
  }

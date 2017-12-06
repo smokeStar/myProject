@@ -4,10 +4,10 @@
       <div class="box">
         <div class="title">Create New Account</div>
         <div class="ipt special">
-          <input type="text" placeholder="Email" v-model=" account">
+          <input type="text" placeholder="Email" v-model="account">
         </div>
         <div class="ipt">
-          <input type="text" placeholder="Password" v-model="password">
+          <input type="password" placeholder="Password" v-model="password">
         </div>
 
         <div class="submit" @click="login">Register</div>
@@ -31,7 +31,7 @@
     				account  : this.account,
             password : this.password
           };
-          this.$http.post('https://wenjianblog.herokuapp.com/api/login/createAccount',params).then(res =>{
+          this.$http.post('http://localhost:8088/api/login/createAccount',params).then(res =>{
             if(res.data.ok){
                 $toast('注册成功');
                 this.$router.push('/login');

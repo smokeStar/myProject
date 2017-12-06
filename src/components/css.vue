@@ -15,7 +15,7 @@
     },
     mounted: function () {
       let params = { type : 'Css'};
-      this.$http.get('https://wenjianblog.herokuapp.com/api/article/description?op=get',{params})
+      this.$http.get('http://localhost:8088/api/article/description?op=get',{params})
         .then(res=>{
           if(!res || !res.data || !res.data.ok) return;
           this.items=res.data.data;
